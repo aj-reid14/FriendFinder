@@ -1,1 +1,6 @@
-let server = require("../server.js");
+let server = require("../../server.js");
+let friends = require("../data/friends.js");
+
+server.app.get("/api/friends", function(req, res) {
+    res.send(friends);
+});
