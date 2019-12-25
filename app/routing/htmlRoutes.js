@@ -1,4 +1,4 @@
-let server = require("../server.js");
+let server = require("../../server.js");
 
 server.app.get("/", function(req, res) {
     res.sendFile(server.path.join(__dirname + "/../public/home.html"));
