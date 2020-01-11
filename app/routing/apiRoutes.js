@@ -1,12 +1,14 @@
-let server = require("../../server.js");
+let express = require("express");
 let friends = require("../data/friends.js");
 
-server.app.get("/api/friends", function(req, res) {
-    res.send(friends);
+const router = express.Router();
+
+router.get("/api/friends", function(req, res) {
+    res.send(res);
 });
 
-server.app.post("/api/friends", function(req, res) {
-    friends.push(req.body.surveyResults);
+router.post("/api/friends", function(req, res) {
     console.log(friends);
-    res.json({allFriends: friends});
-})
+    console.log(req.body);
+    res.json(res);
+});

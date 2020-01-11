@@ -7,7 +7,6 @@
     <title>Friend Finder</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -144,7 +143,7 @@
 
     <script>
 
-        $("#survey-submit").click(function() {
+        $("#survey-submit").click(function () {
 
             let surveyResults = {
                 name: $("#input-name").val().trim(),
@@ -156,17 +155,21 @@
                 surveyResults.scores.push($(`#Q${i} :selected`).val());
             };
 
-            console.log(surveyResults);
-
             $.ajax("/api/friends", {
                 type: "POST",
-                data: surveyResults
-            }).then(function() {
+                data: JSON.stringify(surveyResults)
+            }).then(function () {
                 location.reload();
             });
         });
 
     </script>
+
+    <style>
+        h1 {
+            color: rgb(184, 14, 14);
+        }
+    </style>
 
 </body>
 
